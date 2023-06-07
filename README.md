@@ -1,6 +1,6 @@
 # screenshot-before-10-min
 
-## Inspired
+## Inspired by
 https://twitter.com/blu3mo/status/1664743883928944642
 
 ## Usage

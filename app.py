@@ -23,7 +23,7 @@ class App(tk.Tk):
 
         Path("Screenshots").mkdir(exist_ok=True)
         for i, image in enumerate([Image.new("RGBA", (384, 216), "black") for _ in range(60)]):
-            ImageDraw.Draw(image).text((4, 0), str(Fraction(i, 6)), "white", ImageFont.truetype("arial.ttf", 36))
+            ImageDraw.Draw(image).text((10, 0), f"{i // 6} + {Fraction(i % 6, 6)}", "white", ImageFont.truetype("arial.ttf", 36))
             image.save(f"Screenshots/{i}.png")
         ImageGrab.grab().resize((384, 216)).save("Screenshots/60.png")
 
