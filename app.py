@@ -19,14 +19,14 @@ class App(tk.Tk):
         self.canvas = tk.Canvas(self, width=384, height=216)
         self.canvas.pack()
 
-        self.screenshots = [Image.new("RGBA", (384, 216), "black") for _ in range(601)]
-        for i, image in enumerate(self.screenshots):
+        self.screenshots = [Image.new("RGBA", (384, 216), "black") for _ in range(600)]
+        for i, image in enumerate(self.screenshots):  # 0～599
             ImageDraw.Draw(image).text(
                 (10, 0), f"{i // 60} min {i % 60} s",
                 "white", ImageFont.truetype("arial.ttf", 36),
             )
             self.screenshots[i] = image
-        self.screenshots[600] = ImageGrab.grab().resize((384, 216))
+        self.screenshots.append(ImageGrab.grab().resize((384, 216)))  # 600
 
         self.display_image = ImageTk.PhotoImage(self.screenshots[0])
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.display_image)
