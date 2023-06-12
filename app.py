@@ -22,7 +22,7 @@ class App(tk.Tk):
         self.screenshots = [Image.new("RGBA", (384, 216), "black") for _ in range(600)]
         for i, image in enumerate(self.screenshots):  # 0～599
             ImageDraw.Draw(image).text(
-                (10, 0), f"{i // 60} min {i % 60} s",
+                (10, 0), f"{(600 - i) // 60} min {(600 - i) % 60} s",
                 "white", ImageFont.truetype("arial.ttf", 36),
             )
             self.screenshots[i] = image
